@@ -63,9 +63,9 @@ func listFiles(path string, file os.FileInfo, err error) error {
 	if file.IsDir(){
 		return nil
 	}
-
 	//ファイル名、ファイルパスの取得
 	fileName := file.Name()
+	path = strings.Replace(path, fileName , "", -1)
 	//ファイルへの書き込み
 	output.WriteString(path + "\t" + fileName + "\r")
 
