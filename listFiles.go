@@ -33,7 +33,7 @@ func main() {
 	outputFlNm = "list.txt"
 	output, err = os.Create(cur + "/" + outputFlNm)
 	if err != nil {
-		fmt.Print("カレントディレクトリ取得、または出力ファイルの生成時にエラーが発生しました。")
+		fmt.Print("出力ファイルの生成時にエラーが発生しました。")
 		return
 	}
 	defer output.Close()
@@ -59,7 +59,7 @@ func listFiles(path string, file os.FileInfo, err error) error {
 		return nil
 	}
 
-	//取得したものがディレクトリであった場合、再帰させる
+	//取得したものがディレクトリであった場合、スキップする
 	if file.IsDir(){
 		return nil
 	}
